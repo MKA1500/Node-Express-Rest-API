@@ -1,0 +1,25 @@
+	  
+	  img.h-logo {
+		  width: 180px;
+		  padding-top: 10px;
+		  padding-bottom: 20px;
+		  margin: 0 auto;
+	  }
+
+	  .center-block {
+	  float: none;
+	  }
+	  
+	  .table {
+        margin-top: 10px;
+	  }
+	  
+.page-footer {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.social-icons svg {
+	fill: #32899A;
+	margin: 10px;
+}
