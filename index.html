@@ -7,7 +7,7 @@
     <title>Repositories and Contributions</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link rel="stylesheet" href="main.css" media="screen">
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+   <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -17,74 +17,79 @@
     <![endif]-->
   </head>
 
-  <body ng-app="teamWork">
+  <body>
+  
    <div class="container">
     <div class="row">
 	  <div class="col-sm-8 center-block"> 
+	  
   <header>
    <a href="https://www.x-formation.com/">
    <img src="https://www.x-formation.com/wp-content/uploads/2014/08/logo-small.png" class="h-logo"/>
    </a>
   </header>
+  
+<ul id="dane"></ul>
 
+
+  
   <section>
-  		<div class="input-group">
-		<span class="input-group-addon">Search</span>
-		<input type="text" class="form-control" placeholder="Choose team member or repo name..." ng-model="wyszukiwarka">
-		</div>
-		
+  
+
+	
         <h1 class="text-center">Public Repositories</h1>	
 		
-		<div class="table-responsive" ng-controller="repoControl">
+		<input type = "button" id = "driver" value = "Load Data" />
+		
+		<div class="table-responsive">
 		  <table class="table table-hover">
-		    <thead>
+		   
+		   <thead>
 			  <tr>
-			    <th ng-repeat="nagl in [
-				  'Repo name', 'Forks'
-				]">
-				{{nagl}}
-				</th>
+			    <th>Nickname</th>
+			    <th>Team</th>
+			    <th>Contributions</th>
 			  </tr>
 			</thead>
+			
 			<tbody>
-			  <tr ng-repeat="repo in repos | filter : wyszukiwarka">
+			  <tr class="tr">
 
-			    <td><a ng-href="{{repo.frepolink}}">{{repo.reponame}}</a></td>
-				<td>{{repo.forks}}</td>
+			    <td>...</td>
+				<td>...</td>
 			  </tr>
 			</tbody>
 		  </table>
 		</div>
 
 	</section>  
-	
-	<section>
 
-        <h1 class="text-center">Team Contributions</h1>
+	<section>
+	
+        <h1 class="text-center">Contributors</h1>	
 		
-		<div class="table-responsive"  ng-controller="pracControl">
+		<div class="table-responsive">
 		  <table class="table table-hover">
-		    <thead>
+		   
+		   <thead>
 			  <tr>
-			    <th ng-repeat="naglowek in [
-				  'Nickname', 'Team', 'Contributions'
-				]">
-				{{naglowek}}
+			    <th>
+				{{nagl}}
 				</th>
 			  </tr>
 			</thead>
+			
 			<tbody>
-			  <tr ng-repeat="pracownik in pracownicy | filter: wyszukiwarka">
+			  <tr>
 
-			    <td>{{pracownik.nickname}}</td>
-				<td>{{pracownik.team}}</td>
-				<td>{{pracownik.contributions}}</td>
+			    <td>...</td>
+				<td>...</td>
 			  </tr>
 			</tbody>
 		  </table>
 		</div>
 
-</section>   
+	</section>  -->
    
 <footer class="page-footer">
 
