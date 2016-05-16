@@ -5,6 +5,10 @@
 		  padding-bottom: 20px;
 		  margin: 0 auto;
 	  }
+	  
+	  .header-buttons button {
+		  margin-right: 15px;
+	  }
 
 	  .center-block {
 	  float: none;
@@ -22,4 +26,12 @@
 .social-icons svg {
 	fill: #32899A;
 	margin: 10px;
+}
+
+.one {
+	display: inline-block;
+}
+
+.two {
+	display: none;
 }
