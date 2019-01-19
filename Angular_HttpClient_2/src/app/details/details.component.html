@@ -1,0 +1,18 @@
+<h1>{{ user$.name }}</h1>
+<ul class="list-group">
+  <li class="list-group-item">
+    <strong>Username:</strong> {{user$.username }}
+  </li>
+  <li class="list-group-item">
+    <strong>Website:</strong>
+    <a href="https://{{user$.website}}" target="_blank">
+      {{user$.website }}
+    </a>
+  </li>
+  <li class="list-group-item">
+    <strong>E-Mail</strong> {{user$.email }}
+  </li>
+  <li class="list-group-item">
+    <strong>Phone:</strong> {{user$.phone }}
+  </li>
+</ul>

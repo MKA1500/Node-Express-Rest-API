@@ -1,0 +1,29 @@
+@import "../../variables.scss";
+nav {
+  background: $dark-grey;
+  height: 100vh;
+  width: 4rem;
+  position: fixed;
+  left: 0;
+  top: 0;
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    li {
+      a {
+        color: $white;
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:hover {
+          text-decoration: none;
+        }
+        &.activated {
+          background: $blue;
+        }
+      }
+    }
+  }
+}
