@@ -1,3 +1,48 @@
-<p>
-  servers works!
-</p>
+<div class="servers-container">
+  <h3>Add new server:</h3>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-6">
+          <input
+            type="text"
+            id="serverName"
+            class="form-control"
+            ngModel
+            name="serverName"
+            placeholder="Server name"
+            required>
+        </div>
+        <div class="col-sm-3">
+          <input
+            type="number"
+            id="capacity"
+            class="form-control"
+            ngModel
+            name="capacity"
+            placeholder="Capacity"
+            required>
+        </div>
+        <div class="col-sm-3">
+          <button
+            class="btn btn-success"
+            type="submit"
+            [disabled]="!f.valid">Add</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <h3>Current servers:</h3>
+  <ul class="list-group" [@listStagger]="servers$">
+    <li *ngFor="let server of servers$" class="list-group-item">
+      <strong>{{ server.name }}</strong>
+      <span class="badge badge-info">
+        ID: {{ server.id }}
+      </span>
+      <span class="badge badge-warning">
+        CAPACITY: {{ server.capacity }}
+      </span>
+    </li>
+  </ul>
+
+</div>

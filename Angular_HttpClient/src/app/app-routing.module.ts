@@ -8,20 +8,20 @@ import { ServersComponent } from './servers/servers.component';
 const routes: Routes = [
   {
     path: '',
-    component: UsersComponent
+    component: ServersComponent
   },
   {
     path: 'details/:id',
     component: DetailsComponent
-    
+
   },
   {
     path: 'posts',
     component: PostsComponent
   },
   {
-    path: 'servers',
-    component: ServersComponent
+    path: 'users',
+    component: UsersComponent
   }
 ];
 

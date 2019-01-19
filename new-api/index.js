@@ -4,6 +4,13 @@ const app = express();
 
 app.use(express.json());
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+
 let servers = [
     {
       name: 'Testserver',
@@ -40,6 +47,18 @@ app.get('/api/servers/:id', (req, res) => {
 });
 
 app.post('/api/servers', (req, res) => {
+  if (!res.body.name || !(req.body.capacity > 0)) {
+    // 400 Bad Request
+    // res.status(400).send('Name is required and should be minimum 3 characters.');
+    return;
+  }
+  const server = {
+    id: servers.length + 1,
+    name: req.body.name,
+    capacity: req.body.capacity
+  };
+  servers.push(server);
+  res.send(server);
   // const schema = {
   //   name: Joi.string().min(3).required()
   // };
@@ -49,21 +68,6 @@ app.post('/api/servers', (req, res) => {
   //   res.status(400).send(result.error);
   //   return;
   // }
-
-
-  if (!res.body.name || req.body.name.length < 3) {
-    // 400 Bad Request
-    res.status(400).send('Name is required and should be minimum 3 characters.');
-    return;
-  }
-
-
-  const server = {
-    id: servers.length + 1,
-    name: req.body.name
-  };
-  servers.push(server);
-  res.send(server);
 });
 
 const port = process.env.PORT || 3000;
