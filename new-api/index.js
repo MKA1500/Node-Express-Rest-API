@@ -29,6 +29,17 @@ let servers = [
     }
   ];
 
+let apiTest = {};
+
+app.post('/api/http-test', (req, res) => {
+  apiTest = req.body;
+  res.send('POSTED:' + apiTest);
+});
+
+app.get('/api/http-test', (req, res) => {
+  res.send(apiTest);
+});
+
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });

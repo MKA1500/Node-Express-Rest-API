@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Response } from '@angular/http';
+
 import { ServerService } from './server.service';
 
 @Component({
@@ -29,6 +31,7 @@ export class AppComponent {
       id: this.generateId()
     });
   }
+
   onSave() {
     this.serverService.storeServers(this.servers)
       .subscribe(
@@ -36,6 +39,18 @@ export class AppComponent {
         (error) => console.log(error)
       );
   }
+
+  onGet() {
+    this.serverService.getServers()
+      .subscribe(
+        (response: Response) => {
+          const data = response.json();
+          console.log(data);
+        },
+        (error) => console.log(error)
+      );
+  }
+
   private generateId() {
     return Math.round(Math.random() * 10000);
   }

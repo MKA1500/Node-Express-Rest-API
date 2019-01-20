@@ -8,6 +8,9 @@
       <button
         class="btn btn-success ml-05"
         (click)="onSave()">Save Servers</button>
+      <button
+        class="btn btn-warning ml-05"
+        (click)="onGet()">Get Servers</button>
       <hr>
       <ul class="list-group" *ngFor="let server of servers">
         <li class="list-group-item">{{ server.name }} (ID: {{ server.id }})</li>
