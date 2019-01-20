@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, Response } from '@angular/http';
+import 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
+
 @Injectable()
 export class ServerService {
   link = 'http://localhost:3000/api/http-test/';
@@ -13,6 +16,20 @@ export class ServerService {
   }
 
   getServers() {
-    return this.http.get(this.link);
+    return this.http.get(this.link)
+            .map(
+              (response: Response) => {
+                const data = response.json();
+                for (const server of data) {
+                  server.name = "X_" + server.name;
+                }
+                return data;
+              }
+            )
+            .catch(
+              (error: Response) => {
+                return Observable.throw('Something went wrong...');
+              }
+            );
   }
 }
